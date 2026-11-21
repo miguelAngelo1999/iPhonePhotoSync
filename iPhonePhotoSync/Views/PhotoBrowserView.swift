@@ -26,12 +26,7 @@ struct PhotoBrowserView: View {
     }
 
     var body: some View {
-        ZStack {
-            // Liquid glass background
-            Rectangle()
-                .fill(.ultraThinMaterial)
-                .ignoresSafeArea()
-
+        GlassEffectContainer {
             VStack(spacing: 0) {
                 toolbar
                 filterBar
@@ -44,21 +39,17 @@ struct PhotoBrowserView: View {
         .frame(minWidth: 680, minHeight: 540)
     }
 
-    // MARK: - Toolbar
     private var toolbar: some View {
         HStack(spacing: 12) {
             Image(systemName: "photo.on.rectangle.angled")
-                .font(.title2)
-                .foregroundStyle(.primary)
-            Text("Browse & Select")
-                .font(.headline)
+                .font(.title2).foregroundStyle(.primary)
+            Text("Browse & Select").font(.headline)
             Spacer()
             if browserService.isLoading {
                 HStack(spacing: 6) {
                     ProgressView().controlSize(.small)
                     Text("\(browserService.photos.count) found")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.caption).foregroundStyle(.secondary)
                 }
             }
         }
@@ -67,40 +58,30 @@ struct PhotoBrowserView: View {
         .padding(.bottom, 10)
     }
 
-    // MARK: - Filter bar
     private var filterBar: some View {
         HStack(spacing: 10) {
             HStack(spacing: 6) {
                 Image(systemName: "magnifyingglass")
-                    .foregroundStyle(.secondary)
-                    .font(.caption)
+                    .foregroundStyle(.secondary).font(.caption)
                 TextField("Search", text: $searchText)
-                    .textFieldStyle(.plain)
-                    .font(.subheadline)
+                    .textFieldStyle(.plain).font(.subheadline)
                 if !searchText.isEmpty {
                     Button { searchText = "" } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundStyle(.secondary)
-                    }
-                    .buttonStyle(.plain)
+                        Image(systemName: "xmark.circle.fill").foregroundStyle(.secondary)
+                    }.buttonStyle(.plain)
                 }
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 6)
-            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+            .padding(.horizontal, 10).padding(.vertical, 6)
+            .glassEffect(in: .rect(cornerRadius: 8))
             .frame(maxWidth: 260)
 
             Toggle(isOn: $filterPhotos) {
-                Label("Photos", systemImage: "photo")
-                    .font(.caption)
-            }
-            .toggleStyle(.checkbox)
+                Label("Photos", systemImage: "photo").font(.caption)
+            }.toggleStyle(.checkbox)
 
             Toggle(isOn: $filterVideos) {
-                Label("Videos", systemImage: "video")
-                    .font(.caption)
-            }
-            .toggleStyle(.checkbox)
+                Label("Videos", systemImage: "video").font(.caption)
+            }.toggleStyle(.checkbox)
 
             Spacer()
 
@@ -111,8 +92,7 @@ struct PhotoBrowserView: View {
                     }
                 }
             }
-            .controlSize(.small)
-            .buttonStyle(.bordered)
+            .controlSize(.small).buttonStyle(.bordered)
 
             Button("Deselect All") {
                 for i in browserService.photos.indices {
@@ -121,14 +101,12 @@ struct PhotoBrowserView: View {
                     }
                 }
             }
-            .controlSize(.small)
-            .buttonStyle(.bordered)
+            .controlSize(.small).buttonStyle(.bordered)
         }
         .padding(.horizontal, 20)
         .padding(.bottom, 10)
     }
 
-    // MARK: - Content
     @ViewBuilder
     private var content: some View {
         if browserService.photos.isEmpty && !browserService.isLoading {
@@ -153,31 +131,23 @@ struct PhotoBrowserView: View {
         VStack(spacing: 12) {
             if let err = browserService.errorMessage {
                 Image(systemName: "exclamationmark.triangle")
-                    .font(.system(size: 40))
-                    .foregroundStyle(.orange)
-                Text(err)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
+                    .font(.system(size: 40)).foregroundStyle(.orange)
+                Text(err).foregroundStyle(.secondary).multilineTextAlignment(.center)
             } else {
                 Image(systemName: "photo.on.rectangle.angled")
-                    .font(.system(size: 40))
-                    .foregroundStyle(.secondary)
-                Text("No photos found")
-                    .foregroundStyle(.secondary)
+                    .font(.system(size: 40)).foregroundStyle(.secondary)
+                Text("No photos found").foregroundStyle(.secondary)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    // MARK: - Bottom bar
     private var bottomBar: some View {
         HStack {
             Text("\(selectedCount) of \(browserService.photos.count) selected")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .font(.subheadline).foregroundStyle(.secondary)
             Spacer()
-            Button("Cancel", action: onCancel)
-                .keyboardShortcut(.cancelAction)
+            Button("Cancel", action: onCancel).keyboardShortcut(.cancelAction)
             Button("Copy \(selectedCount) Item\(selectedCount == 1 ? "" : "s")") {
                 onConfirm(browserService.selectedPaths)
             }
@@ -185,8 +155,7 @@ struct PhotoBrowserView: View {
             .disabled(selectedCount == 0)
             .keyboardShortcut(.defaultAction)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 14)
+        .padding(.horizontal, 20).padding(.vertical, 14)
     }
 }
 
@@ -197,75 +166,68 @@ struct PhotoThumbnailCell: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            // Thumbnail image or placeholder
-            ZStack {
-                if let img = item.thumbnail {
-                    Image(nsImage: img)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 140, height: 140)
-                        .clipped()
-                } else {
+            // Card with glass effect
+            VStack(spacing: 0) {
+                // Thumbnail — aspect-fit so nothing is stretched
+                ZStack {
                     Rectangle()
                         .fill(.quaternary)
-                        .frame(width: 140, height: 140)
-                    Image(systemName: item.isVideo ? "video.fill" : "photo.fill")
-                        .font(.system(size: 32))
-                        .foregroundStyle(.tertiary)
+                    if let img = item.thumbnail {
+                        Image(nsImage: img)
+                            .resizable()
+                            .scaledToFit()  // fit, not fill — no stretching
+                            .padding(4)
+                    } else {
+                        Image(systemName: item.isVideo ? "video.fill" : "photo.fill")
+                            .font(.system(size: 32))
+                            .foregroundStyle(.tertiary)
+                    }
                 }
+                .frame(width: 140, height: 120)
+                .clipped()
 
-                // Bottom label
-                VStack {
-                    Spacer()
-                    HStack(spacing: 4) {
-                        if item.isVideo {
-                            Image(systemName: "video.fill")
-                                .font(.system(size: 9))
-                        }
-                        Text(item.filename)
-                            .font(.system(size: 10, weight: .medium))
-                            .lineLimit(1)
-                            .truncationMode(.middle)
-                        Spacer()
-                        Text(item.sizeFormatted)
+                // Label bar
+                HStack(spacing: 4) {
+                    if item.isVideo {
+                        Image(systemName: "video.fill")
                             .font(.system(size: 9))
                     }
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 4)
-                    .background(.ultraThinMaterial)
+                    Text(item.filename)
+                        .font(.system(size: 10, weight: .medium))
+                        .lineLimit(1).truncationMode(.middle)
+                    Spacer()
+                    Text(item.sizeFormatted)
+                        .font(.system(size: 9)).foregroundStyle(.secondary)
                 }
+                .padding(.horizontal, 6).padding(.vertical, 5)
             }
-            .frame(width: 140, height: 140)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .frame(width: 140)
+            .glassEffect(in: .rect(cornerRadius: 10))
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .strokeBorder(item.isSelected ? Color.accentColor : Color.clear, lineWidth: 3)
+                    .strokeBorder(item.isSelected ? Color.accentColor : Color.clear, lineWidth: 2.5)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(item.isSelected ? Color.accentColor.opacity(0.15) : .clear)
+                    .fill(item.isSelected ? Color.accentColor.opacity(0.12) : .clear)
             )
 
             // Checkmark badge
             ZStack {
                 Circle()
-                    .fill(item.isSelected ? Color.accentColor : Color(.windowBackgroundColor).opacity(0.8))
                     .frame(width: 22, height: 22)
+                    .glassEffect(in: .circle)
                 if item.isSelected {
                     Image(systemName: "checkmark")
                         .font(.system(size: 11, weight: .bold))
                         .foregroundStyle(.white)
-                } else {
-                    Circle()
-                        .strokeBorder(.secondary.opacity(0.5), lineWidth: 1.5)
-                        .frame(width: 22, height: 22)
                 }
             }
             .padding(6)
         }
         .contentShape(Rectangle())
         .onTapGesture { onToggle(!item.isSelected) }
-        .scaleEffect(item.isSelected ? 1.0 : 0.97)
+        .scaleEffect(item.isSelected ? 1.0 : 0.96)
         .animation(.spring(response: 0.2), value: item.isSelected)
     }
 }

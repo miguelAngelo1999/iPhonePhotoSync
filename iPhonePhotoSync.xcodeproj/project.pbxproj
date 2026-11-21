@@ -195,7 +195,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				SWIFT_VERSION = 5.0;
-				MACOS_DEPLOYMENT_TARGET = 14.0;
+				MACOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
@@ -204,7 +204,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				SWIFT_VERSION = 5.0;
-				MACOS_DEPLOYMENT_TARGET = 14.0;
+				MACOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};
@@ -216,7 +216,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = iPhonePhotoSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOS_DEPLOYMENT_TARGET = 14.0;
+				MACOS_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iPhonePhotoSync;
 				PRODUCT_NAME = iPhonePhotoSync;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -232,7 +232,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = iPhonePhotoSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOS_DEPLOYMENT_TARGET = 14.0;
+				MACOS_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iPhonePhotoSync;
 				PRODUCT_NAME = iPhonePhotoSync;
 				SWIFT_EMIT_LOC_STRINGS = YES;

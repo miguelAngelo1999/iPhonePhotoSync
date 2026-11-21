@@ -5,21 +5,16 @@ struct ContentView: View {
     @StateObject private var transferService = TransferService()
     @StateObject private var browserService = PhotoBrowserService()
     @State private var destination: URL = {
-        let pictures = FileManager.default
+        FileManager.default
             .urls(for: .picturesDirectory, in: .userDomainMask)[0]
-        return pictures.appendingPathComponent("iPhonePhotos")
+            .appendingPathComponent("iPhonePhotos")
     }()
     @State private var showFilePicker = false
     @State private var showLog = false
     @State private var showBrowser = false
 
     var body: some View {
-        ZStack {
-            // Full-window glass background
-            Rectangle()
-                .fill(.ultraThinMaterial)
-                .ignoresSafeArea()
-
+        GlassEffectContainer {
             VStack(spacing: 0) {
                 DeviceHeaderView(
                     device: deviceService.device,
@@ -80,7 +75,7 @@ struct ContentView: View {
             }
         }
         .padding(16)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 14))
+        .glassEffect(in: .rect(cornerRadius: 14))
         .fileImporter(
             isPresented: $showFilePicker,
             allowedContentTypes: [.folder],
@@ -121,7 +116,7 @@ struct ContentView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 14))
+        .glassEffect(in: .rect(cornerRadius: 14))
     }
 
     private var runningState: some View {

@@ -9,27 +9,23 @@ struct DeviceHeaderView: View {
         HStack(spacing: 16) {
             ZStack {
                 Circle()
-                    .fill(.regularMaterial)
-                    .frame(width: 52, height: 52)
+                    .frame(width: 48, height: 48)
+                    .glassEffect(in: .circle)
                 Image(systemName: "iphone")
-                    .font(.system(size: 24))
+                    .font(.system(size: 22))
                     .foregroundStyle(device != nil ? .primary : .secondary)
             }
 
             VStack(alignment: .leading, spacing: 3) {
                 if let d = device {
-                    Text(d.name)
-                        .font(.headline)
+                    Text(d.name).font(.headline)
                     Text("iOS \(d.iOSVersion) · \(d.productType)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .font(.caption).foregroundStyle(.secondary)
                 } else {
                     Text("No iPhone detected")
-                        .font(.headline)
-                        .foregroundStyle(.secondary)
+                        .font(.headline).foregroundStyle(.secondary)
                     Text(statusLabel)
-                        .font(.caption)
-                        .foregroundStyle(statusColor)
+                        .font(.caption).foregroundStyle(statusColor)
                 }
             }
 
@@ -37,12 +33,10 @@ struct DeviceHeaderView: View {
 
             if pairingState == .denied || pairingState == .unpaired {
                 Button("Trust Computer", action: onPair)
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
+                    .buttonStyle(.bordered).controlSize(.small)
             } else if pairingState == .paired {
                 Label("Paired", systemImage: "lock.open.fill")
-                    .font(.caption)
-                    .foregroundStyle(.green)
+                    .font(.caption).foregroundStyle(.green)
             } else {
                 ProgressView().controlSize(.small)
             }
