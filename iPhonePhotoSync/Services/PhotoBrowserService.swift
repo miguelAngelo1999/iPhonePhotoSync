@@ -106,7 +106,13 @@ final class PhotoBrowserService: ObservableObject {
         let filename = String(components.last ?? Substring(path))
         let folder = components.count >= 2 ? String(components[components.count - 2]) : ""
 
-        let item = PhotoItem(id: path, filename: filename, folder: folder, size: size)
+        var thumbData: Data? = nil
+        if let b64 = json["thumb"] as? String, !b64.isEmpty {
+            thumbData = Data(base64Encoded: b64)
+        }
+
+        let item = PhotoItem(id: path, filename: filename, folder: folder,
+                             size: size, thumbnailData: thumbData)
         DispatchQueue.main.async { [weak self] in
             self?.photos.append(item)
         }

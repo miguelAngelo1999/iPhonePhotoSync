@@ -1,4 +1,5 @@
 import Foundation
+import AppKit
 
 struct PhotoItem: Identifiable, Hashable {
     let id: String       // remote path, unique
@@ -6,8 +7,12 @@ struct PhotoItem: Identifiable, Hashable {
     let folder: String   // e.g. "100APPLE"
     let size: Int64
     var isSelected: Bool = true
+    var thumbnailData: Data? = nil
 
-    var displayName: String { filename }
+    var thumbnail: NSImage? {
+        guard let data = thumbnailData else { return nil }
+        return NSImage(data: data)
+    }
 
     var isVideo: Bool {
         let ext = (filename as NSString).pathExtension.lowercased()
@@ -19,4 +24,8 @@ struct PhotoItem: Identifiable, Hashable {
         if mb >= 1 { return String(format: "%.1f MB", mb) }
         return String(format: "%.0f KB", Double(size) / 1024)
     }
+
+    // Hashable ignores thumbnailData for performance
+    func hash(into hasher: inout Hasher) { hasher.combine(id) }
+    static func == (lhs: PhotoItem, rhs: PhotoItem) -> Bool { lhs.id == rhs.id }
 }

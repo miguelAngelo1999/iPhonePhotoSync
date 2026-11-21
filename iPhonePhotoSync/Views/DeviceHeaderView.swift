@@ -7,23 +7,29 @@ struct DeviceHeaderView: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            Image(systemName: "iphone")
-                .font(.system(size: 36))
-                .foregroundColor(device != nil ? .primary : .secondary)
+            ZStack {
+                Circle()
+                    .fill(.regularMaterial)
+                    .frame(width: 52, height: 52)
+                Image(systemName: "iphone")
+                    .font(.system(size: 24))
+                    .foregroundStyle(device != nil ? .primary : .secondary)
+            }
 
             VStack(alignment: .leading, spacing: 3) {
                 if let d = device {
-                    Text(d.name).font(.headline)
+                    Text(d.name)
+                        .font(.headline)
                     Text("iOS \(d.iOSVersion) · \(d.productType)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 } else {
                     Text("No iPhone detected")
                         .font(.headline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     Text(statusLabel)
                         .font(.caption)
-                        .foregroundColor(statusColor)
+                        .foregroundStyle(statusColor)
                 }
             }
 
@@ -36,13 +42,13 @@ struct DeviceHeaderView: View {
             } else if pairingState == .paired {
                 Label("Paired", systemImage: "lock.open.fill")
                     .font(.caption)
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green)
             } else {
                 ProgressView().controlSize(.small)
             }
         }
         .padding(16)
-        .background(Color(NSColor.controlBackgroundColor))
+        .background(.ultraThinMaterial)
     }
 
     private var statusLabel: String {
