@@ -1,0 +1,267 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2415704A690841899867746A522D95AC /* iPhonePhotoSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FCCA9C46734689BAF4ABCDEEEA270F /* iPhonePhotoSyncApp.swift */; };
+		5A89FC7F62DD459380371C21589E77C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79BA2F2134A44589F3E3C496B1C09A3 /* ContentView.swift */; };
+		ED80E3DB547E42668873325754D05B2C /* DeviceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C83544D9A3453D9BFF6D9BB5543336 /* DeviceHeaderView.swift */; };
+		9A974E6A28E74496BF4C6C472B3A30EE /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98571E3166B141D8A7591DD7EF9CB4D5 /* LogView.swift */; };
+		A779F327DF194160A4EC5B90D37F03C3 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD1A240974541A5A5E91ECCAE54A426 /* DeviceInfo.swift */; };
+		A75004BED6984522BD93F1E1AE713D30 /* TransferFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6427CEB747437C802B7D7B3958D1D5 /* TransferFile.swift */; };
+		4D87553EB5EC473782455507AB8E9B2C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39ED4A83E346DAB0DFBC04FDDB419B /* DeviceService.swift */; };
+		62270452727D46E68695AC2E907D00A8 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F6CE8AF304476CA8DABC4F52449FB1 /* TransferService.swift */; };
+		F93B129944744B19A9C742C62D88964E /* transfer.py in Resources */ = {isa = PBXBuildFile; fileRef = 82852B4893CD41A6A0D558808C68B510 /* transfer.py */; };
+		E9A8E87ABCB14671886BC8DE29801F94 /* PhotoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EFDA6207644B488134AE99476CC31 /* PhotoItem.swift */; };
+		BD3A604AA66E4E42ACB12094C3AFB807 /* PhotoBrowserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9E8DB576648389155E41C029E0307 /* PhotoBrowserService.swift */; };
+		E65939C1FC424DA8AF315A9A3C700009 /* PhotoBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15A0FB72757469D8D44EA88E62341C0 /* PhotoBrowserView.swift */; };
+		779FC9E4B0714907B2F9D11CA0C8C5FD /* list_photos.py in Resources */ = {isa = PBXBuildFile; fileRef = E67FDCA6DDDD467FA90D3AABEB9ABD3C /* list_photos.py */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		58FCCA9C46734689BAF4ABCDEEEA270F /* iPhonePhotoSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhonePhotoSyncApp.swift; sourceTree = "<group>"; };
+		B79BA2F2134A44589F3E3C496B1C09A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		64C83544D9A3453D9BFF6D9BB5543336 /* DeviceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHeaderView.swift; sourceTree = "<group>"; };
+		98571E3166B141D8A7591DD7EF9CB4D5 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		6DD1A240974541A5A5E91ECCAE54A426 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		5B6427CEB747437C802B7D7B3958D1D5 /* TransferFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFile.swift; sourceTree = "<group>"; };
+		9B39ED4A83E346DAB0DFBC04FDDB419B /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		78F6CE8AF304476CA8DABC4F52449FB1 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
+		82852B4893CD41A6A0D558808C68B510 /* transfer.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = transfer.py; sourceTree = "<group>"; };
+		3A5B9B248407434D9373413319B65626APP /* iPhonePhotoSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhonePhotoSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE2EFDA6207644B488134AE99476CC31 /* PhotoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItem.swift; sourceTree = "<group>"; };
+		E4D9E8DB576648389155E41C029E0307 /* PhotoBrowserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserService.swift; sourceTree = "<group>"; };
+		F15A0FB72757469D8D44EA88E62341C0 /* PhotoBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserView.swift; sourceTree = "<group>"; };
+		E67FDCA6DDDD467FA90D3AABEB9ABD3C /* list_photos.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = list_photos.py; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		007EE21CD8B242299B98DD6F9E183BB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		458D119019BB48D888B34780FC95DC1C = {
+			isa = PBXGroup;
+			children = (
+				58FCCA9C46734689BAF4ABCDEEEA270F /* iPhonePhotoSyncApp.swift */,
+				0553A63DD97A40FCA50C1185F5EC773D /* Views */,
+				DE27952A392D4D7ABC5E9DA3F4D19F91 /* Models */,
+				7E80B11305144286AFAD282A6EFD24ED /* Services */,
+				BB0AAC9C6EC74B42A55782C780164DB6 /* Resources */,
+			);
+			path = iPhonePhotoSync;
+			sourceTree = "<group>";
+		};
+		0553A63DD97A40FCA50C1185F5EC773D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B79BA2F2134A44589F3E3C496B1C09A3 /* ContentView.swift */,
+				64C83544D9A3453D9BFF6D9BB5543336 /* DeviceHeaderView.swift */,
+				98571E3166B141D8A7591DD7EF9CB4D5 /* LogView.swift */,
+							F15A0FB72757469D8D44EA88E62341C0 /* PhotoBrowserView.swift */,
+);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE27952A392D4D7ABC5E9DA3F4D19F91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6DD1A240974541A5A5E91ECCAE54A426 /* DeviceInfo.swift */,
+				5B6427CEB747437C802B7D7B3958D1D5 /* TransferFile.swift */,
+							DE2EFDA6207644B488134AE99476CC31 /* PhotoItem.swift */,
+);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7E80B11305144286AFAD282A6EFD24ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9B39ED4A83E346DAB0DFBC04FDDB419B /* DeviceService.swift */,
+				78F6CE8AF304476CA8DABC4F52449FB1 /* TransferService.swift */,
+							E4D9E8DB576648389155E41C029E0307 /* PhotoBrowserService.swift */,
+);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BB0AAC9C6EC74B42A55782C780164DB6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82852B4893CD41A6A0D558808C68B510 /* transfer.py */,
+							E67FDCA6DDDD467FA90D3AABEB9ABD3C /* list_photos.py */,
+);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00A3D1B41DF648FA80DDF20E669EB726 /* iPhonePhotoSync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9164CB85308849E79E09DF9330F48D41 /* Build configuration list for PBXNativeTarget "iPhonePhotoSync" */;
+			buildPhases = (
+				763679BD95A646FEA64002C7478D7C3A /* Sources */,
+				007EE21CD8B242299B98DD6F9E183BB3 /* Frameworks */,
+				F12F077DA7EA44A898452A894D3A8845 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPhonePhotoSync;
+			productName = iPhonePhotoSync;
+			productReference = 3A5B9B248407434D9373413319B65626APP /* iPhonePhotoSync.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A5B9B248407434D9373413319B65626 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					00A3D1B41DF648FA80DDF20E669EB726 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = FDEF0F3C393B404FA7EF2982268E6571 /* Build configuration list for PBXProject "iPhonePhotoSync" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 458D119019BB48D888B34780FC95DC1C;
+			productRefGroup = 458D119019BB48D888B34780FC95DC1C;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00A3D1B41DF648FA80DDF20E669EB726 /* iPhonePhotoSync */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F12F077DA7EA44A898452A894D3A8845 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F93B129944744B19A9C742C62D88964E /* transfer.py in Resources */,
+				779FC9E4B0714907B2F9D11CA0C8C5FD /* list_photos.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		763679BD95A646FEA64002C7478D7C3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2415704A690841899867746A522D95AC /* iPhonePhotoSyncApp.swift in Sources */,
+				5A89FC7F62DD459380371C21589E77C9 /* ContentView.swift in Sources */,
+				ED80E3DB547E42668873325754D05B2C /* DeviceHeaderView.swift in Sources */,
+				9A974E6A28E74496BF4C6C472B3A30EE /* LogView.swift in Sources */,
+				A779F327DF194160A4EC5B90D37F03C3 /* DeviceInfo.swift in Sources */,
+				A75004BED6984522BD93F1E1AE713D30 /* TransferFile.swift in Sources */,
+				4D87553EB5EC473782455507AB8E9B2C /* DeviceService.swift in Sources */,
+				62270452727D46E68695AC2E907D00A8 /* TransferService.swift in Sources */,
+				E9A8E87ABCB14671886BC8DE29801F94 /* PhotoItem.swift in Sources */,
+				BD3A604AA66E4E42ACB12094C3AFB807 /* PhotoBrowserService.swift in Sources */,
+				E65939C1FC424DA8AF315A9A3C700009 /* PhotoBrowserView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		10B693B5EF7648D1B2F9A037C9C73394 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				SWIFT_VERSION = 5.0;
+				MACOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Debug;
+		};
+		868B31A90F274B5D91A7144D3606FD2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				SWIFT_VERSION = 5.0;
+				MACOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Release;
+		};
+		60673BF374E2439FB2E2C4F838583074 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSTAS_DIR = iPhonePhotoSync/Resources;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = iPhonePhotoSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOS_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iPhonePhotoSync;
+				PRODUCT_NAME = iPhonePhotoSync;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		98F5A1314FB04008949D266AB4A5CEA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = iPhonePhotoSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOS_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iPhonePhotoSync;
+				PRODUCT_NAME = iPhonePhotoSync;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDEF0F3C393B404FA7EF2982268E6571 /* Build configuration list for PBXProject "iPhonePhotoSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B693B5EF7648D1B2F9A037C9C73394 /* Debug */,
+				868B31A90F274B5D91A7144D3606FD2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9164CB85308849E79E09DF9330F48D41 /* Build configuration list for PBXNativeTarget "iPhonePhotoSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60673BF374E2439FB2E2C4F838583074 /* Debug */,
+				98F5A1314FB04008949D266AB4A5CEA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A5B9B248407434D9373413319B65626 /* Project object */;
+}

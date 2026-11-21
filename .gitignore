@@ -1,0 +1,19 @@
+# Xcode derived data and build artifacts
+.DS_Store
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+.build/
+build/
+
+# Swift Package Manager
+.swiftpm/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
